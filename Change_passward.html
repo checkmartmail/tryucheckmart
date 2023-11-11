@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="alert.css">
+    <title>Change Passward</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            max-width: 400px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        #form {
+            padding: 10px;
+
+        }
+
+        input[type="password"] {
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        label {
+            text-align: left;
+            display: block;
+            font-size: 16px;
+        }
+
+        #changeButton {
+            background-color: #007acc;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        #changeButton:hover {
+            background-color: #005aa5;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            input[type="password"] {
+                font-size: 14px;
+            }
+
+            label {
+                font-size: 14px;
+            }
+
+            #changeButton {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Change Password</h1>
+        <p>Please enter your current and new passwords:</p>
+
+        <form id="form">
+            <label for="currentPassword">Current Password:</label>
+            <input type="password" id="currentPassword" required>
+
+            <label for="newPassword">New Password:</label>
+            <input type="password" id="newPassword" required>
+
+            <label for="confirmPassword">Confirm New Password:</label>
+            <input type="password" id="confirmPassword" required>
+
+            <button id="changeButton">Change Password</button>
+        </form>
+    </div>
+
+    <script>
+
+
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            changePassword()
+        });
+
+
+
+
+
+        let user = JSON.parse(localStorage.getItem("user"));
+        // console.log(user);
+
+        var hashedphone_phonenumber;
+        // // console.log("phone : "+hashedphone_fromlocalstorage);
+
+        // var hashedpassword_fromlocalstorage;
+        // // console.log("phone : "+hashedpassword_fromlocalstorage);
+
+        pra()
+
+        async function pra() {
+            hashedphone_phonenumber = await sha256(user["phone_number"]);
+            hashedpassword_fromlocalstorage = await sha256(user["password"]);
+        }
+
+
+
+        const githubToken = "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";
+        const githubUsername = 'ankit81413';
+        const githubRepo = 'Logintest';
+        const githubFilePath = 'Login.json';
+
+
+
+
+
+
+        async function changePassword() {
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            var hashed_currentPassword = await sha256(currentPassword);
+            var hashed_newPassword = await sha256(newPassword);
+
+            // Add your password change logic here
+            if (currentPassword && newPassword && confirmPassword) {
+                if (newPassword === confirmPassword) {
+                    // alert("Password changed successfully!");
+                    // customalert("success","Success","Passward changed successfully")
+                    updatePasswordForUser(hashedphone_phonenumber, hashed_currentPassword, hashed_newPassword)
+                    updatePasswordInLocalStorage(newPassword)
+                    // You can redirect the user or perform other actions here.
+                } else {
+                    // alert("New password and confirm password do not match.");
+                    customalert("error", "Error", "New password and confirm password do not match.")
+                }
+            } else {
+                // alert("Please fill in all the fields.");
+            }
+        }
+
+
+
+
+        async function sha256(input) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(input);
+            const buffer = await crypto.subtle.digest('SHA-256', data);
+
+            // Convert the buffer to a hexadecimal string
+            const hashedArray = Array.from(new Uint8Array(buffer));
+            const hashedHex = hashedArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+            return hashedHex;
+        }
+
+
+
+
+        function updatePasswordInLocalStorage(newPassword) {
+            // Check if localStorage is available in the browser
+            if (typeof localStorage !== 'undefined') {
+                // Get the existing user data from localStorage
+                const userDataString = localStorage.getItem('user');
+
+                if (userDataString !== null) {
+                    // Parse the user data from JSON string to an object
+                    const userData = JSON.parse(userDataString);
+
+                    // Update the password property with the new value
+                    userData.password = newPassword;
+
+                    // Convert the updated user data back to a JSON string
+                    const updatedUserDataString = JSON.stringify(userData);
+
+                    // Update the user data in localStorage
+                    localStorage.setItem('user', updatedUserDataString);
+                } else {
+                    // Handle the case where the "user" key doesn't exist in localStorage
+                    console.error('The "user" key does not exist in localStorage');
+                }
+            } else {
+                // Handle the case where localStorage is not supported
+                console.error('localStorage is not available in this browser');
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        function updatePasswordForUser(hashedphone, oldPassword, newPassword) {
+            // Fetch the JSON data from GitHub (Steps 1-3 remain the same)
+            fetch(`https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${githubFilePath}`, {
+                method: 'GET',
+                headers: {
+                    Authorization: `token ${githubToken}`,
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Decode the content of the JSON file
+                    const content = atob(data.content);
+                    const jsonData = JSON.parse(content);
+
+                    // Find the user with matching hashedphone and oldPassword (Steps 1-3 remain the same)
+                    const matchingUser = jsonData.users.find(user => user.phone_number === hashedphone && user.password === oldPassword);
+
+                    if (matchingUser) {
+                        // Update the user's password to the new password
+                        matchingUser.password = newPassword;
+
+                        // Encode the updated JSON data
+                        const updatedContent = btoa(JSON.stringify(jsonData, null, 2));
+
+                        // Update the JSON data on GitHub
+                        fetch(`https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${githubFilePath}`, {
+                            method: 'PUT',
+                            headers: {
+                                Authorization: `token ${githubToken}`,
+                            },
+                            body: JSON.stringify({
+                                message: 'Update user password',
+                                content: updatedContent,
+                                sha: data.sha,
+                            }),
+                        })
+                            .then(response => response.json())
+                            .then(updatedData => {
+                                // Custom alert for a successful password update
+                                customalert("success", "Password Updated", "User's password has been updated.");
+                            })
+                            .catch(error => {
+                                // Handle errors in updating user data on GitHub
+                                console.error('Error updating user data on GitHub:', error);
+                            });
+                    } else {
+                        // Custom alert for no matching user found
+                        customalert("info", "User Not Found", "No matching user found.");
+                    }
+                })
+                .catch(error => {
+                    // Handle errors in fetching GitHub JSON
+                    console.error('Error fetching GitHub JSON:', error);
+                });
+        }
+
+    </script>
+    <script src="alert.js"></script>
+</body>
+
+</html>

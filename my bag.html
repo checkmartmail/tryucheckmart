@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="alert.css">
+  <title>My bag</title>
+  <style>
+    html {
+      font-size: 0.08vw;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-size: 16rem;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 10rem;
+      box-shadow: 0 2rem 10rem rgba(0, 0, 0, 0.1);
+      margin: 20rem;
+      padding: 20rem;
+    }
+
+    .My_bag_heading {
+      text-align: center;
+      color: #333;
+      font-size: 35rem;
+    }
+
+    .bag_product {
+      background-color: #eee;
+      display: flex;
+      margin: 15rem;
+      padding: 10rem;
+      border-radius: 10rem;
+    }
+
+    #my_bag {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    .bag_image_container {
+      min-width: 200rem;
+      width: 200rem;
+      min-height: 200rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      border-radius: 10rem;
+      overflow: hidden;
+      margin: 10rem;
+    }
+
+    .bag_image_container img {
+      display: block;
+      width: 100%;
+      max-height: 100%;
+    }
+
+    .bag_details {
+      margin: 10rem;
+      padding: 0 10rem;
+    }
+
+    .price_and_remove_container {
+      display: flex;
+      margin-top: 10rem;
+    }
+
+    .price_and_remove_container .price {
+      color: green;
+      font-size: 19rem;
+      font-weight: 400;
+    }
+
+    .bag_product_name {
+      font-size: 25rem;
+    }
+
+    /* Button Styles */
+
+    .remove_button {
+      display: inline-block;
+      padding: 10rem 20rem;
+      background-color: #3498db;
+      color: #fff;
+      border: 4rem solid #108bc4;
+      border-radius: 5rem;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s;
+      position: absolute;
+      right: 70rem;
+    }
+
+    .remove_button:hover {
+      background-color: #2980b9;
+      border-color: #68c0fc;
+      border-radius: 8rem;
+    }
+
+    .remove_button:active {
+      background-color: #2073a4;
+      border-color: #2073a4;
+    }
+
+    /* Text Rating Styles */
+
+    .text_rating {
+      display: inline-flex;
+      font-size: 27rem;
+      position: relative;
+      top: 2rem;
+      background-color: green;
+      padding: 0 8rem;
+      color: white;
+      border-radius: 5rem;
+    }
+
+    .rating {
+      font-size: 15rem;
+      background: linear-gradient(to right, gold 10%, grey 10%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .rating i {
+      font-size: 18rem;
+    }
+
+
+    .price_box h1 {
+      font-size: 40rem;
+      display: inline;
+      color: black;
+    }
+
+    .price_box h2 {
+      font-size: 20rem;
+      display: inline;
+      color: grey;
+      margin-left: 10rem;
+    }
+
+    .price_box h3 {
+      color: red;
+      display: inline;
+      font-size: 30rem;
+      font-weight: 300;
+    }
+
+    .price_box p {
+      font-size: 20rem;
+      color: grey;
+      margin-top: 5rem;
+    }
+
+    .price_box p i {
+      font-size: 20rem;
+      color: grey;
+      margin-top: 5rem;
+    }
+
+    .price_box hr {
+      margin: 20rem 0;
+      border-color: #ddd;
+    }
+
+    /* Footer Styles */
+
+    /* Add your styles for the footer here */
+
+    /* General Button Styles */
+
+    .button {
+      display: inline-block;
+      padding: 10rem 20rem;
+      background-color: #3498db;
+      color: #fff;
+      border: 4rem solid #108bc4;
+      border-radius: 5rem;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #2980b9;
+      border-color: #68c0fc;
+      border-radius: 8rem;
+    }
+
+    .button:active {
+      background-color: #2073a4;
+      border-color: #2073a4;
+    }
+
+    .My_bag_heading svg {
+      font-size: 30rem;
+      margin-right: 5rem;
+    }
+
+    .highlighted {
+      animation: blink 0.5s ease-in-out 2;
+      /* 1s duration, ease-in-out timing function, 3 iterations */
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        background-color: #eee;
+        /* or your default background color */
+      }
+
+      50% {
+        background-color: rgba(187, 193, 255, 1);
+        /* or any color you want during the blink */
+      }
+    }
+    
+    @media (max-width:700px) {
+      html{
+        font-size: 0.11vw;
+      }
+    }
+    
+    
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="My_bag_heading"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+        <path d="M253.3 35.1c6.1-11.8 1.5-26.3-10.2-32.4s-26.3-1.5-32.4 10.2L117.6 192H32c-17.7 0-32 14.3-32 32s14.3 32 32 32L83.9 463.5C91 492 116.6 512 146 512H430c29.4 0 55-20 62.1-48.5L544 256c17.7 0 32-14.3 32-32s-14.3-32-32-32H458.4L365.3 12.9C359.2 1.2 344.7-3.4 332.9 2.7s-16.3 20.6-10.2 32.4L404.3 192H171.7L253.3 35.1zM192 304v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16zm96-16c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm128 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16z" />
+      </svg>My Bag</h1>
+    <div id="my_bag">
+
+    </div>
+
+
+  </div>
+</body>
+<script src="alert.js"></script>
+<script>
+  var products_json;
+  fetch("products.json").then(response => {
+    return response.json();
+  }).then(data => {
+    products_json = data;
+
+
+    controllpage(data);
+    //refreshbag(data);
+    //refreshhistory(data);
+
+  });
+
+
+  var userData = JSON.parse(localStorage.getItem("user"));
+  if(!userData){
+      customalert("warning", "You are not logged in", "")
+  }
+  var userBag;
+  var total_products_in_bag;
+
+  function controllpage(data) {
+    if (userData) {
+      userBag = userData.bag;
+      total_products_in_bag = userBag.length;
+      refreshbag(data);
+      highlightMatchingProduct();
+    }
+
+  }
+
+
+
+
+
+
+  function refreshbag(product_json) {
+
+
+
+    userData = JSON.parse(localStorage.getItem("user"));
+    userBag = userData.bag;
+    total_products_in_bag = userBag.length;
+    console.log(total_products_in_bag)
+    const bagSection = document.getElementById("my_bag")
+
+    if (total_products_in_bag > 0) {
+
+
+      bagSection.innerHTML = "";
+
+
+
+      var bag_products_string = "";
+      //total_products_in_bag
+      for (let i = 0; i < total_products_in_bag; i++) {
+
+
+        var present_product_code = userBag[i];
+        //console.log(present_product_code)
+        var present_product_name = product_json[present_product_code]["name"];
+        var present_product_rating = product_json[present_product_code]["raating"];
+        var present_product_thumbnail = product_json[present_product_code]["thumbnail"];
+        var rating_percentage = (present_product_rating / 5) * 100;
+
+
+
+
+
+        var present_product = `<div class="bag_product"><a href="checkmart%20products.html?value=` + present_product_code + `">
+      <div class="bag_image_container">
+        <img src="` + present_product_thumbnail + `" alt="">
+      </div>
+      <div class="bag_details">
+        <h1 class="bag_product_name">` + present_product_name + `</h1>
+        <h3 class="text_rating">0.0</h3>
+        <div class="rating" style="display: inline-flex;
+  font-size: 15rem;background: linear-gradient(to right, gold ` + rating_percentage + `%, grey ` + rating_percentage + `%);background-clip: text;
+  -webkit-background-clip: text;color: transparent;
+  margin-bottom: 10rem;">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="price_and_remove_container">
+          <div class="price_box" id="price_box` + i + `">
+            <h3>-90%</h3>
+            <h1><sup>₹</sup>5000</h1>
+            <h2><strike>₹5000</strike></h2>
+            <p><i class="fa-solid fa-money-check-dollar fa-shake"></i>You save ₹5000</p>
+          </div></a>
+          <button class="remove_button" onclick=removeitemfrombag("` + present_product_code + `")>Remove from Bag</button>
+        </div>
+      </div></a>
+    </div>`
+
+        //console.log(i)
+        bagSection.innerHTML += present_product;
+        update_rating(present_product_rating, i);
+        update_pricebox(product_json[present_product_code], i)
+
+
+      }
+      console.log("bag is not empty");
+    }else{
+      bagSection.innerHTML = `<h1 style="font-size:40rem; text-align:center; color:#1F1F1F; padding:50rem; border:1rem solid #1F1F1F; margin:20rem;border-radius:20rem;">BAG IS EMPTY   :(</h1>`;
+      console.log("bag is empty");
+    }
+
+    // console.log(present_product);
+    //update_rating(product_json)
+
+  }
+
+
+
+
+  function update_rating(ratingvalue, bag_product_index) {
+
+    let rating_text = ratingvalue;
+    //console.log(bag_product_index);
+
+    document.getElementsByClassName("text_rating")[bag_product_index].innerText = ratingvalue;
+
+  }
+
+
+
+
+  function update_pricebox(present_product_json, bag_product_index) {
+    let off_Percent = document.querySelector("#price_box" + bag_product_index + " h3");
+    let dealprice = document.querySelector("#price_box" + bag_product_index + " h1");
+    //console.log(dealprice)
+    let mrp = document.querySelector("#price_box" + bag_product_index + " h2");
+    let save_money = document.querySelector("#price_box" + bag_product_index + " p");
+
+
+    let c = present_product_json["dealprice"];
+    let a = parseFloat(present_product_json["dealprice"].replace(/,/g, ''));
+    let d = present_product_json["mrp"];
+    let b = parseFloat(present_product_json["mrp"].replace(/,/g, ''));
+
+
+    dealprice.innerHTML = "<sup>₹</sup>" + c;
+    mrp.innerHTML = "<strike>₹" + d + "</strike>";
+
+
+
+    save_money_Innertext = (b - a);
+    save_money_Innertext_with_comma = addCommasIndianStyle(save_money_Innertext)
+
+
+    save_money.innerHTML = `<i class="fa-solid fa-money-check-dollar fa-shake"></i>You save ₹` + save_money_Innertext_with_comma;
+
+    var percentage = (save_money_Innertext / b) * 100;
+
+    const roundedPercentage = Math.round(percentage);
+
+    off_Percent.innerText = "-" + roundedPercentage + "%";
+
+
+  }
+
+
+
+  function addCommasIndianStyle(number) {
+    if (isNaN(number)) {
+      return "Not a valid number";
+    }
+
+    // Convert the number to a string
+    let numberString = number.toString();
+
+    // Split the number into integer and decimal parts (if any)
+    const parts = numberString.split('.');
+
+    // Add commas to the integer part with the correct Indian numbering system format
+    parts[0] = parts[0].replace(/(\d)(?=(\d\d)+\d$)/g, "$1,");
+
+    // Join the integer and decimal parts (if any)
+    return parts.join('.');
+  }
+  //console.log(indianFormattedNumber); // Outputs "12,34,56,7890"
+
+
+
+
+
+
+
+
+
+  const githubToken = "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";
+  const githubUsername = 'ankit81413';
+  const githubRepo = 'Logintest';
+  const githubFilePath = 'Login.json';
+
+  function removeProductFromBag(product_to_be_removed, hashedphone, hashedpassword) {
+    // Fetch the JSON data from GitHub
+    fetch(`https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${githubFilePath}`, {
+        method: 'GET',
+        headers: {
+          Authorization: `token ${githubToken}`,
+        },
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Decode the content of the JSON file
+        const content = atob(data.content);
+        const jsonData = JSON.parse(content);
+
+        // Find the user with matching hashedphone and hashedpassword
+        const matchingUser = jsonData.users.find(user => user.phone_number === hashedphone && user.password === hashedpassword);
+
+        if (matchingUser) {
+          // Check if the product_to_be_removed is in the user's bag
+          const indexOfProduct = matchingUser.bag.indexOf(product_to_be_removed);
+          if (indexOfProduct !== -1) {
+            // Remove the product from the user's bag array
+            matchingUser.bag.splice(indexOfProduct, 1);
+
+            // Encode the updated JSON data
+            const updatedContent = btoa(JSON.stringify(jsonData, null, 2));
+
+            // Update the JSON data on GitHub
+            fetch(`https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${githubFilePath}`, {
+                method: 'PUT',
+                headers: {
+                  Authorization: `token ${githubToken}`,
+                },
+                body: JSON.stringify({
+                  message: 'Update user bag (remove product)',
+                  content: updatedContent,
+                  sha: data.sha,
+                }),
+              })
+              .then(response => response.json())
+              .then(updatedData => {
+
+                //console.log('Product removed from user bag on GitHub:', updatedData);
+                customalert("success", "Removed from history", "this item is removed from history")
+              })
+              .catch(error => {
+                //console.error('Error updating user bag on GitHub:', error);
+              });
+          } else {
+            //console.log('Product is not in the user\'s bag.');
+          }
+        } else {
+          //console.log('No matching user found.');
+        }
+      })
+      .catch(error => {
+        //console.error('Error fetching GitHub JSON:', error);
+      });
+  }
+
+  //Example usage:
+
+
+  //removeProductFromBag(product_to_be_removed, hashedphone, hashedpassword);
+
+
+
+
+
+
+
+  // Function to remove a value from the "bag" array in the JSON object stored in localStorage
+  function remove_from_local_bag(valueToRemove) {
+    // Retrieve the JSON data from localStorage
+    const userData = localStorage.getItem("user");
+
+    // Check if data exists for the provided key
+    if (userData) {
+      // Parse the JSON string into a JavaScript object
+      const userObject = JSON.parse(userData);
+
+      // Check if the "bag" property is an array in the object
+      if (Array.isArray(userObject.bag)) {
+        // Find the index of the value to remove in the "bag" array
+        const index = userObject.bag.indexOf(valueToRemove);
+
+        // If the value exists in the "bag" array, remove it
+        if (index !== -1) {
+          userObject.bag.splice(index, 1);
+
+          // Stringify the modified object back into a JSON string
+          const updatedUserData = JSON.stringify(userObject);
+
+          // Update the "user" key in localStorage with the modified JSON string
+          localStorage.setItem("user", updatedUserData);
+
+          // Return the modified user object
+
+          return userObject;
+
+
+        }
+      }
+    }
+
+
+
+  }
+
+
+
+
+
+  async function removeitemfrombag(number) {
+
+    var userdata2 = JSON.parse(localStorage.getItem("user"));
+    var phone_number = userdata2["phone_number"];
+    var password = userdata2["password"];
+
+
+    const product_to_be_removed = number;
+    const hashedphone = await sha256(phone_number);
+    const hashedpassword = await sha256(password);
+
+    removeProductFromBag(product_to_be_removed, hashedphone, hashedpassword);
+    remove_from_local_bag(product_to_be_removed);
+    refreshbag(products_json);
+
+
+
+
+    //console.log(hashedphone)
+    //console.log(hashedpassword)
+
+
+  }
+
+
+
+
+
+  async function sha256(input) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(input);
+    const buffer = await crypto.subtle.digest('SHA-256', data);
+
+    // Convert the buffer to a hexadecimal string
+    const hashedArray = Array.from(new Uint8Array(buffer));
+    const hashedHex = hashedArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+    return hashedHex;
+  }
+
+
+
+  //urlpara 
+
+
+
+  function highlightMatchingProduct() {
+    // Get the URL parameter 'removable_item'
+    const urlParams = new URLSearchParams(window.location.search);
+    const removableItemValue = urlParams.get("removable_item");
+    //console.log(removableItemValue);
+    const bagProductElements = document.querySelectorAll(".bag_product");
+
+
+    if (removableItemValue) {
+
+      bagProductElements.forEach((product) => {
+        // Check if the 'bag_product' contains a button with an 'onclick' attribute
+        const button = product.querySelector(".remove_button");
+        if (button) {
+          // Extract the 'a' value from the 'onclick' attribute
+          const onclickValue = button.getAttribute("onclick");
+
+
+          const inputString = onclickValue;
+          const regex = /"([^"]+)"/;
+          const match = regex.exec(inputString);
+
+          if (match) {
+            const extractedValue = match[1];
+            //console.log(extractedValue); // This will log "0001" to the console
+          } else {
+            //console.log("No match found.");
+          }
+
+
+          if (match && match[1] === removableItemValue) {
+            // Highlight the product element (add a class or change its style)
+
+            product.classList.add("highlighted"); // Add a 'highlighted' class for styling
+
+            // Log the 'a' value to the console
+            //console.log("Value of 'a' in highlightMatchingProduct is:", match);
+          }
+        }
+      });
+
+
+    }
+  }
+
+  // Call the function when the page loads
+</script>
+
+
+
+</html>

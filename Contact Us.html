@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="alert.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Onest&family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+
+
+<style>
+  #Contact_heading{
+    display: flex;
+    flex-direction: column;
+    background-color: #E6FCFF;
+    background-color: teal;
+    padding: 50rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #Contact_heading h1 {
+    font-size: 50rem;
+    color: white;
+  }
+
+  #Contact_heading p {
+    font-size: 18rem;
+    max-width: 60%;
+    text-align: center;
+    margin-top: 20rem;
+    color: white;
+  }
+
+  #Contact_heading a {
+    background-color: deepskyblue;
+    font-size: 30rem;
+    padding: 10rem 15rem;
+    margin: 20rem;
+    max-width: 111111rem;
+    text-align: center;
+    border: 4rem solid #4DCEFF;
+    border-radius: 12rem;
+    color: white;
+  }
+
+  #Contact_heading a i {
+    font-size: 30rem;
+    margin-right: 10rem;
+  }
+
+  #Contact_section {
+    background-color: teal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70rem;
+  }
+
+  #contact_links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact_link {
+    font-size: 20rem;
+    padding: 10rem 25rem;
+    margin: 3rem;
+    background-color: red;
+    color: white;
+    border: 4rem solid green;
+    border-radius: 8rem;
+    text-align: center;
+  }
+
+  .mail {
+    background-color: deepskyblue;
+    border-color: #9DDBFF;
+  }
+
+  .phone {
+    background-color: #22b050;
+    border-color: #4FD290;
+  }
+
+  .whatsapp {
+    background-color: #00893E;
+    border-color: #539270;
+  }
+
+  .telegram {
+    background-color: #229ED9;
+    border-color: dodgerblue;
+  }
+
+  #form {
+    width: 500rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10rem;
+    margin-left: 20rem;
+    border-radius: 10rem;
+  }
+
+  #form input {
+    margin: 10rem;
+    padding: 5rem;
+    border: 2rem solid lightgray;
+    border-radius: 5rem;
+  }
+
+  #form h1 {
+    color: #373737;
+    margin: 10rem;
+    font-size: 25rem;
+  }
+
+
+
+
+  #textarea {
+    margin: 10rem;
+    padding: 5rem;
+    border: 2rem solid lightgray;
+    border-radius: 5rem;
+
+  }
+
+  #submit {
+    background-color: deepskyblue;
+    border: 4rem solid #4DCEFF;
+    border-radius: 5rem;
+    padding: 5rem;
+    margin: 10rem;
+    color: white;
+  }
+
+  #follow_us {
+    background-color: rgba(67, 166, 255, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 50rem 0rem;
+  }
+
+  #follow_us h1 {
+    display: block;
+    text-align: center;
+    font-size: 35rem;
+    padding: 20rem 0rem;
+    width: 100%;
+    color: white;
+  }
+
+  #follow_us a {
+    font-size: 20rem;
+    padding: 5rem 20rem;
+    color: white;
+  }
+
+  #follow_us a i {
+    font-size: 20rem;
+  }
+  
+
+
+  @media (max-width: 700px) {
+    #Contact_heading {
+      padding: 60rem 20rem;
+      border-bottom: 3rem solid skyblue;
+    }
+
+    #Contact_heading h1 {
+      font-size: 70rem;
+    }
+
+    #Contact_heading p {
+      font-size: 40rem;
+      max-width: 80%;
+      margin-top: 50rem;
+    }
+
+    #Contact_heading a {
+      font-size: 40rem;
+      padding: 15rem 25rem;
+      margin: 50rem 20rem;
+      max-width: 250rem;
+      text-align: center;
+      border: 7rem solid #4DCEFF;
+      border-radius: 12rem;
+      color: white;
+    }
+
+    #Contact_heading a i {
+      font-size: 40rem;
+      margin-right: 10rem;
+    }
+
+    #Contact_section {
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 80rem 20rem;
+    }
+
+    #contact_links {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 150rem 0rem;
+    }
+
+    .contact_link {
+      font-size: 60rem;
+      padding: 50rem;
+      margin: 20rem;
+      border-radius: 18rem;
+    }
+    
+    .contact_link i{
+      font-size: 60rem;
+    }
+
+    #form {
+      width: 100%;
+      padding: 10rem;
+      margin: 0rem;
+      border-radius: 10rem;
+      margin-bottom: 100rem;
+    }
+
+    #form input {
+      margin: 20rem;
+      padding: 20rem;
+      border: 5rem solid lightgray;
+      border-radius: 10rem;
+      font-size: 40rem;
+    }
+
+    #form h1 {
+      color: #373737;
+      margin: 20rem;
+      font-size: 60rem;
+    }
+
+
+
+
+    #textarea {
+      margin: 20rem;
+      padding: 20rem;
+      border: 5rem solid lightgray;
+      border-radius: 10rem;
+      font-size: 40rem;
+    }
+    
+    
+
+    #submit {
+      background-color: deepskyblue;
+      border: 8rem solid #4DCEFF;
+      border-radius: 5rem;
+      padding: 15rem;
+      margin: 10rem;
+      color: white;
+      font-size: 50rem;
+    }
+
+    #follow_us {
+      padding: 200rem 0rem;
+    }
+
+    #follow_us h1 {
+      display: block;
+      text-align: center;
+      font-size: 60rem;
+      padding: 20rem 0rem;
+    }
+
+    #follow_us a {
+      font-size: 40rem;
+      padding: 5rem 60rem;
+      color: white;
+    }
+
+    #follow_us a i {
+      font-size: 40rem;
+    }
+  }
+</style>
+
+<body>
+
+
+
+
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar_content">
+      <span class="close_icon" id="close_sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+          <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+        </svg></span>
+      <!-- Sidebar content goes here -->
+      <h3>Sidebar Menu</h3>
+      <ul>
+        <li><a href="search with code.html">Search with code</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sidebar_background" id="sidebar_background">
+
+  </div>
+
+  <header>
+
+
+    <i class="fa-solid fa-bars" id="open_sidebar"></i>
+
+
+    <nav id="navbar">
+      <div id="spacer">
+
+      </div>
+      <a href="index.html"><img src="images/New Project 12 [DC45756].png" alt="CheckMart" class="logo"><img src="images/New Project 13 [A92F7B1].png" alt="" class="logo"></a>
+      <div class="form_container">
+        <div class="searchform">
+          <input type="text" class="srcinp" placeholder="SEARCH" onclick="searchactive()">
+          <button class="srcbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <ul class="results">
+
+        </ul>
+
+      </div>
+      <a href="login.html" id="login"><i class="fa-solid fa-user"></i>Login</a>
+
+      <a href="search with code.html" id="populat_now">
+        <p>Search with code</p>
+      </a>
+
+    </nav>
+
+
+  </header>
+
+
+
+
+
+  <div id="Contact_heading">
+    <h1>Contact Information</h1>
+    <p>Feel free to reach out to us at any time with your questions and feedback. We're here to assist you!</p>
+    <a href="mailto: checkmart.mail.com"><i class="fa-regular fa-envelope"></i>Mail Us</a>
+  </div>
+
+
+  <div id="Contact_section">
+    <div id="contact_links">
+      <a href="mailto: chackmart.mail.com" class="contact_link mail"><i class="fa-regular fa-envelope"></i> Mail-1</a>
+
+      <a href="mailto: chackmart.charlies.com" class="contact_link mail"><i class="fa-regular fa-envelope"></i> Mail-2</a>
+
+      <a href="tel:+917027522310" class="contact_link phone"><i class="fa-solid fa-phone"></i> Phone</a>
+
+      <a href="https://wa.me/+917027522310" class="contact_link whatsapp"><i class="fa-brands fa-whatsapp"></i> Whapsapp</a>
+
+      <a href="https://t.me/CheckMartindia" class="contact_link telegram"><i class="fa-brands fa-telegram"></i> Telegram</a>
+
+
+    </div>
+    <form id="form">
+      <h1>Send message</h1>
+      <input type="text" id="name" placeholder="name" required>
+      <input type="email" id="email" placeholder="E-mail" required>
+      <textarea name="" id="textarea" placeholder="message"></textarea>
+
+      <button type="submit" id="submit">Submit</button>
+    </form>
+
+  </div>
+
+  <div id="follow_us">
+    <h1>Follow Us on</h1>
+    <a href="https://www.instagram.com/checkmart.in/" target="_blank"><i class="fa-brands fa-instagram"></i> @checkmart.in</a>
+    <a href="https://www.youtube.com/@CheckMart-vt7gv" target="_blank"><i class="fa-brands fa-youtube"></i> Checkmart</a>
+    <a href="https://t.me/CheckMartindia" target="_blank"><i class="fa-brands fa-telegram"></i> Checkmart.in</a>
+
+  </div>
+
+
+  <footer class="e-commerce-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Email-1: checkmart.mail@gmail.com</p>
+        <p>Email-2: checkmart.charlies@gmail.com</p>
+        <p>Phone: +91 70275-22310</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search with code.html">search through code</a></li>
+          <li><a href="Terms and Conditions.html">Terms and Conditions</a></li>
+          <li><a href="Privacy policy.html">Privacy policy</a></li>
+          <li><a href="About Us.html">About Us</a></li>
+          </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Stay Connected</h3>
+        <p>Follow us on social media:</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/checkmart.in/" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+          <a href="https://www.youtube.com/@CheckMart-vt7gv" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://t.me/CheckMartindia" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2023 YourStore. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+<script src="alert.js"></script>
+<script src="header.js"></script>
+<!-- textarea -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("form");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Get the form values
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("textarea").value;
+
+
+    const sidebar_Background = document.getElementById('sidebar_background');
+    sidebar_Background.classList.add('opened_sidebar_background');
+
+    // Create an object with the form values
+    const userData = {
+      name: name,
+      email: email,
+      message: message,
+    };
+
+    let content;
+
+    // Fetch the current content of your JSON file
+    fetch("https://api.github.com/repos/ankit81413/Logintest/contents/contactus.json", {
+      headers: {
+        Authorization: "Bearer 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",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Get the latest SHA
+        const latestSHA = data.sha;
+
+        // Decode the content from base64
+        const currentContent = atob(data.content);
+
+        // Parse the current JSON data
+        const jsonData = JSON.parse(currentContent);
+
+        // Ensure 'responses' array exists
+        if (!jsonData.responses) {
+          jsonData.responses = [];
+        }
+
+        // Push the user's response into the "responses" array
+        jsonData.responses.push(userData);
+
+        // Encode the updated data as base64
+        content = btoa(JSON.stringify(jsonData, null, 2));
+
+        // Make the PUT request to update the JSON file
+        return fetch(
+          "https://api.github.com/repos/ankit81413/Logintest/contents/contactus.json",
+          {
+            method: "PUT",
+            headers: {
+              Authorization: "Bearer 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",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              message: "Update user data",
+              content: content,
+              sha: latestSHA,
+            }),
+          }
+        );
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle success
+        // alert("Data added successfully!");
+        customalert("success","Success","Your responce is captured successfully")
+        sidebar_Background.classList.remove('opened_sidebar_background');
+
+      })
+      .catch((error) => {
+        console.error(error);
+        // alert("Failed to add data.");
+        customalert("error","Error","some error ocured")
+        sidebar_Background.classList.remove('opened_sidebar_background');
+      });
+  });
+});
+
+</script>
+</html>

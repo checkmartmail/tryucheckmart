@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    * {
+      margin: 0rem;
+      padding: 0rem;
+    }
+
+    html {
+      font-size: 0.25vw;
+    }
+
+    @media (min-width: 700px) {
+      html {
+        font-size: 0.13vw;
+      }
+
+      .center {
+        width: 500rem;
+      }
+    }
+
+
+    body {
+      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+    }
+
+    /* Style for each input field */
+    input[type="number"] {
+      width: 40rem;
+      height: 40rem;
+      font-size: 24rem;
+      text-align: center;
+      border: 2rem solid #007BFF;
+      border-radius: 5rem;
+      margin: 5rem;
+    }
+
+    /* Style for the search button */
+    button[type="submit"] {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5rem;
+      padding: 10rem 20rem;
+      font-size: 16rem;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <div id="otpContainer">
+      <input type="number" id="otp1" min="0" max="9" oninput="moveToNext(this, 'otp2', 'otp1')" autofocus required>
+      <input type="number" id="otp2" min="0" max="9" oninput="moveToNext(this, 'otp3', 'otp1')" required>
+      <input type="number" id="otp3" min="0" max="9" oninput="moveToNext(this, 'otp4', 'otp2')" required>
+      <input type="number" id="otp4" min="0" max="9" oninput="moveToNext(this, 'otp4', 'otp3')" required>
+    </div>
+    <button type="submit" id="searchButton">Search</button>
+  </form>
+
+  <script>
+    function moveToNext(input, nextFieldId, prevFieldId) {
+      if (input.value.length === 1) {
+        document.getElementById(nextFieldId).focus();
+      } else if (input.value.length === 0 && prevFieldId) {
+        document.getElementById(prevFieldId).focus();
+      } else if (input.value.length > 1) {
+        input.value = input.value.slice(-1); // Slice to one digit
+        document.getElementById(nextFieldId).focus();
+      }
+    }
+
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the form from actually submitting
+      const otp1 = document.getElementById('otp1').value;
+      const otp2 = document.getElementById('otp2').value;
+      const otp3 = document.getElementById('otp3').value;
+      const otp4 = document.getElementById('otp4').value;
+      const concatenatedNumbers = otp1 + otp2 + otp3 + otp4;
+      console.log("Concatenated Numbers: " + concatenatedNumbers);
+
+      var url = 'checkmart products.html?value=' + concatenatedNumbers;
+      //window.open(url, "_blank");
+      window.location.href=url;
+
+
+    });
+  </script>
+</body>
+
+</html>

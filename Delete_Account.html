@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="alert.css">
+    <title>Change Passward</title>
+<head>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px #ccc;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        #checkboxLabel {
+            display: block;
+            text-align: left;
+        }
+
+        #deleteButton {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: not-allowed;
+        }
+
+        #deleteButton.disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Delete Account</h1>
+        <p>
+            <strong>Warning:</strong> Deleting your account will permanently remove all your data and you won't be able
+            to recover it.
+        </p>
+        <p>Please tick the checkbox if you really want to delete your account:</p>
+
+        <label id="checkboxLabel">
+            <input type="checkbox" id="deleteCheckbox"> I understand and want to delete my account
+        </label>
+
+        <button id="deleteButton" class="disabled" onclick="confirmDelete()">Delete Account</button>
+    </div>
+    <script src="alert.js"></script>
+    <script>
+        const deleteCheckbox = document.getElementById('deleteCheckbox');
+        const deleteButton = document.getElementById('deleteButton');
+
+        function uncheckCheckbox() {
+            deleteCheckbox.checked = false;
+            console.log("hi");
+        }
+
+
+        deleteCheckbox.addEventListener('change', function () {
+            deleteButton.classList.toggle('disabled', !deleteCheckbox.checked);
+        });
+
+        function confirmDelete() {
+            if (deleteCheckbox.checked) {
+                let confirmation = confirm("Are you sure you want to delete your account?");
+                if (confirmation) {
+                    permanently_delete_account();
+                }
+            }
+        }
+
+        async function sha256(input) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(input);
+            const buffer = await crypto.subtle.digest('SHA-256', data);
+
+            // Convert the buffer to a hexadecimal string
+            const hashedArray = Array.from(new Uint8Array(buffer));
+            const hashedHex = hashedArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+            return hashedHex;
+        }
+
+        
+        let user=JSON.parse(localStorage.getItem("user"));
+        console.log(user);
+
+        var hashedphone_fromlocalstorage;
+        // console.log("phone : "+hashedphone_fromlocalstorage);
+
+        var hashedpassword_fromlocalstorage;
+        // console.log("phone : "+hashedpassword_fromlocalstorage);
+
+        pra()
+
+        async function pra() {
+            hashedphone_fromlocalstorage = await sha256(user["phone_number"]);
+            hashedpassword_fromlocalstorage = await sha256(user["password"]);
+        }
+
+
+
+        function permanently_delete_account() {
+            // Your delete account logic here
+            alert("Your account has been permanently deleted.");
+            uncheckCheckbox()
+            // console.log("phone : "+hashedphone_fromlocalstorage);
+            // console.log("pass : "+hashedpassword_fromlocalstorage);
+            delete_it(hashedphone_fromlocalstorage, hashedpassword_fromlocalstorage)
+            // window.location.href = "index.html"; // Redirect to the home page or a thank you page.
+        }
+
+
+
+
+
+        const githubToken = "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";
+        const githubUsername = 'ankit81413';
+        const githubRepo = 'Logintest';
+        const githubFilePath = 'Login.json';
+
+
+
+
+
+        function delete_it(hashedphone, hashedpassword) {
+            // Fetch the JSON data from GitHub
+            fetch(`https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${githubFilePath}`, {
+                method: 'GET',
+                headers: {
+                    Authorization: `token ${githubToken}`,
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Decode the content of the JSON file
+                    const content = atob(data.content);
+                    const jsonData = JSON.parse(content);
+
+                    // Find the index of the user with matching hashedphone and hashedpassword
+                    const index = jsonData.users.findIndex(user => user.phone_number === hashedphone && user.password === hashedpassword);
+
+                    if (index !== -1) {
+                        // Remove the matching user from the array of users
+                        jsonData.users.splice(index, 1);
+
+                        // Encode the updated JSON data
+                        const updatedContent = btoa(JSON.stringify(jsonData, null, 2));
+
+                        // Update the JSON data on GitHub
+                        fetch(`https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${githubFilePath}`, {
+                            method: 'PUT',
+                            headers: {
+                                Authorization: `token ${githubToken}`,
+                            },
+                            body: JSON.stringify({
+                                message: 'Remove user from data',
+                                content: updatedContent,
+                                sha: data.sha,
+                            }),
+                        })
+                            .then(response => response.json())
+                            .then(updatedData => {
+                                // Custom alert or further processing on success if needed
+                                console.log('User removed from data on GitHub:', updatedData);
+                                localStorage.removeItem("user")
+                                localStorage.removeItem("history")
+                                alert("removed")
+                            })
+                            .catch(error => {
+                                // Handle the error if the update fails
+                            });
+                    } else {
+                        // User not found, handle as needed
+                        // console.log('No matching user found.');
+                        // alert("not found")
+                    }
+                })
+                .catch(error => {
+                    // Handle the error if fetching data from GitHub fails
+                    console.error('Error fetching GitHub JSON:', error);
+                    alert("error ")
+                });
+        }
+
+    </script>
+</body>
+
+</html>

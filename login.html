@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>CheckMart Login Page</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="alert.css">
+
+
+</head>
+
+<style>
+  * {
+    margin: 0rem;
+    padding: 0rem;
+  }
+
+  html {
+    font-size: 0.25vw;
+  }
+
+  @media (min-width: 700px) {
+    html {
+      font-size: 0.09vw;
+    }
+
+    .center {
+      width: 500rem;
+    }
+  }
+
+
+  .lg {
+    background-color: red;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("login backgrounds/5.jpg");
+    background-size: cover;
+    background-position: center center;
+    animation: slide3 60s infinite;
+    animation-delay: 0s;
+
+  }
+
+  @keyframes slide3 {
+    0% {
+
+      background: url("login backgrounds/1.jpg");
+      background-size: cover;
+      background-position: center center;
+
+    }
+
+    12.5% {
+      background: url("login backgrounds/2.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    25% {
+      background: url("login backgrounds/3.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    37.5% {
+      background: url("login backgrounds/4.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    50% {
+      background: url("login backgrounds/5.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    62.5% {
+      background: url("login backgrounds/6.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    75% {
+      background: url("login backgrounds/7.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    87.5% {
+      background: url("login backgrounds/8.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+
+  }
+
+
+
+
+  .center {
+    border: 1rem solid rgba(0, 0, 0, 0.6);
+    border-radius: 10rem;
+    box-shadow: 25rem 30rem 40rem rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15rem);
+  }
+
+
+
+
+
+
+
+
+  .center h1 {
+    color: black;
+    text-align: center;
+    padding: 20rem;
+    border-bottom: 1rem solid rgba(0, 0, 0, 0.6);
+    font-size: 30rem;
+  }
+
+  .center form {
+    padding: 0rem 40rem 40rem 40rem;
+    box-sizing: border-box;
+  }
+
+  form .txt-field {
+
+    position: relative;
+    border-bottom: 2rem solid rgba(0, 0, 0, 0.6);
+    margin: 30rem 0;
+
+
+  }
+
+  .txt-field input {
+    width: 100%;
+    padding: 0 5rem;
+    height: 40rem;
+    font-size: 16rem;
+    border: none;
+    background: none;
+    outline: none;
+  }
+
+  .txt-field label {
+    position: absolute;
+    font-size: 16rem;
+    top: 50%;
+    left: 5rem;
+    color: black;
+    transform: translateY(-50%);
+    transition: .5s;
+  }
+
+  .txt-field span::before {
+    content: '';
+    position: absolute;
+    top: 40rem;
+    left: 0;
+    width: 0%;
+    height: 2rem;
+    background: #2691d9;
+    transition: .5s;
+
+  }
+
+  .txt-field input:focus~label,
+  .txt-field input:valid~label {
+    top: -5rem;
+    color: #2691d9;
+  }
+
+  .txt-field input:focus~span::before,
+  .txt-field input:valid~span::before {
+    width: 100%;
+
+
+  }
+
+  .pass {
+    margin: -5rem 0 20rem 5rem;
+    color: black;
+    cursor: pointer;
+    font-size: 13rem;
+  }
+
+  .pass:hover {
+    text-decoration: underline;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    height: 50rem;
+    border: 1rem solid;
+    background: #2691d9;
+    font-weight: 700;
+    border-radius: 50rem;
+    font-size: 18rem;
+    color: white;
+    transition: .5s;
+
+  }
+
+  select {
+    border: 2rem solid white;
+    background-color: transparent;
+    border-radius: 4rem;
+    margin-left: 35rem;
+  }
+
+
+  input[type="submit"]:hover {
+    border: 5rem solid #2691d9;
+    border: 5rem solid lightblue;
+    transition: .5s;
+  }
+
+  .signup-link {
+    text-align: center;
+    margin-top: 30rem;
+    font-size: 12rem;
+  }
+
+  .signup-link a {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .preview_image{
+  height: 1px;
+  width: 1px;
+  background-color: red;
+  position: absolute;
+  top: -10px;
+}
+
+</style>
+
+<body>
+
+  <div>
+    <img src="login backgrounds/6.jpg" class="preview_image">
+    <img src="login backgrounds/2.jpg" class="preview_image">
+    <img src="login backgrounds/3.jpg" class="preview_image">
+    <img src="login backgrounds/4.jpg" class="preview_image">
+    <img src="login backgrounds/5.jpg" class="preview_image">
+    <img src="login backgrounds/6.jpg" class="preview_image">
+    <img src="login backgrounds/7.jpg" class="preview_image">
+    <img src="login backgrounds/8.jpg" class="preview_image">
+  </div>
+
+
+
+  <div class="lg">
+
+
+
+    <div class="center">
+      <h1>Login</h1>
+      <form id="login_form">
+        <div class="txt-field">
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+          <span></span>
+          <label for="phone">PHONE NUMBER</label>
+        </div>
+
+        <div class="txt-field">
+          <input type="password" autocomplete="current-password" required>
+          <span></span>
+          <label onclick="passwordfocus()">PASSWORD</label>
+        </div>
+
+        <input type="submit" value="login">
+
+        <div class="signup-link">
+          Not a member? <a href="SignUp.html">Signup</a>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+</body>
+<script src="alert.js"></script>
+<script>
+  /*function checkInternetConnection() {
+    if (navigator.onLine) {
+      // Connection is online
+      // console.log("Internet connection is online.");
+    } else {
+      // Connection is offline, show an alert
+      alert("Internet connection is lost now!");
+    }
+  }
+
+  // Check the internet connection status every 5 seconds
+  setInterval(checkInternetConnection, 2000);*/
+
+
+
+
+
+
+  const githubToken = "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";
+  const githubUsername = 'ankit81413';
+  const githubRepo = 'Logintest';
+  const githubFilePath = 'Login.json';
+
+
+  function digitnotallowed() {
+    //alert("11th digit not allowed")
+    customalert("info", "Invalid Input", "A phone number can not contain more than 10 digits")
+  }
+
+  // Get a reference to the input element
+  const inputElement = document.getElementById("phone"); // Replace "phoneInput" with the actual ID of your input field
+
+  // Add an event listener to the input
+  inputElement.addEventListener("input", (event) => {
+    let inputText = event.target.value;
+
+    // Remove any non-digit characters (e.g., spaces or dashes)
+    inputText = inputText.replace(/\D/g, ''); // \D matches any non-digit character
+
+    // Limit the input to 10 digits
+    if (inputText.length > 10) {
+      digitnotallowed();
+      // Truncate the input to 10 digits
+      inputText = inputText.slice(0, 10);
+    }
+
+    // Update the input field with the limited value
+    inputElement.value = inputText;
+  });
+
+
+
+
+  async function submittheform() {
+    // var name = document.getElementById("name").value;
+    // var gender = document.getElementById("gender").value;
+    var phone = document.getElementById("phone").value;
+    var passward = document.querySelector('input[type="password"]').value;
+
+    var hashedphone = await sha256(phone);
+    var hashedpassword = await sha256(passward);
+
+
+
+    // Load the existing JSON data
+    fetch(`https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${githubFilePath}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `token ${githubToken}`
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Decode the content from base64
+        const content = atob(data.content);
+
+        // Parse the existing JSON data
+        const jsonData = JSON.parse(content);
+
+        // Check if the hashed phone number matches any existing user's phone_number
+        const existingUser = jsonData.users.find(user => user.phone_number === hashedphone);
+        const UserIndex = jsonData.users.findIndex(user => user.phone_number === hashedphone);
+        const userdetailstosave = jsonData["users"][UserIndex];
+
+        if (!existingUser) {
+          // If the phone number doesn't match any existing user, call the notauser() function
+          notauser();
+        } else {
+          // Check if the hashed password matches the password of the same user
+          if (existingUser.password === hashedpassword) {
+            const UserIndex = jsonData.users.findIndex(user => user.phone_number === hashedphone);
+            const userdetailstosave = jsonData["users"][UserIndex];
+            saveUserToLocalStorage(userdetailstosave, UserIndex);
+
+
+            //alert('User and password match');
+            customalert("check", "Login Success", "please wait for the process to complete")
+            setTimeout(function() {
+              //window.close();
+              window.history.back();
+            }, 2000);
+          } else {
+            //alert('Password does not match.');
+            customalert("error", "Login Failed", "Password does not match")
+          }
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching user data:', error);
+      });
+  }
+
+  // Function to handle the case when the phone number doesn't match any existing user
+  function notauser() {
+    //console.log('Phone number does not match any existing user.');
+    //alert('Phone number does not match any existing user.');
+    customalert("error", "Invalid phonenumber", "Looks like you are not a user already . Try Sign Up");
+    // setTimeout(function() {
+    //   window.location.href = '/SignUp.html';
+    // }, 2000);
+    // You can add further handling logic here if needed.
+  }
+
+  // Finish the function
+  // finishhhh
+
+
+
+
+
+  function passwordfocus() {
+    let passdiv = document.querySelector('input[type="password"]');
+    passdiv.focus();
+  }
+
+
+
+
+
+
+  // Prevent form submission on Enter key press
+  document.getElementById("login_form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    submittheform();
+  });
+
+
+
+
+
+  // Function to save user details into localStorage
+  function saveUserToLocalStorage(userDetails, indexx) {
+
+
+
+    var phone = document.getElementById("phone").value;
+    var passward = document.querySelector('input[type="password"]').value;
+
+    const edits = {
+      "phone_number": phone,
+      "password": passward
+    };
+
+    const editResult = editJSONValues(userDetails, edits);
+
+    // Convert the user details to a JSON string and save it in localStorage
+    localStorage.setItem('user', JSON.stringify(userDetails));
+    console.log(userDetails)
+
+
+    // console.log(indexx);
+    // console.log(editResult);
+  }
+
+
+  // Function to edit multiple values in a JSON object
+  function editJSONValues(jsonData, edits) {
+    let success = true;
+
+    for (const key in edits) {
+      if (jsonData.hasOwnProperty(key)) {
+        jsonData[key] = edits[key];
+      } else {
+        console.log(`Key "${key}" not found in JSON data.`);
+        success = false;
+      }
+    }
+
+    return jsonData;
+  }
+
+
+
+
+
+
+  async function sha256(input) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(input);
+    const buffer = await crypto.subtle.digest('SHA-256', data);
+
+    // Convert the buffer to a hexadecimal string
+    const hashedArray = Array.from(new Uint8Array(buffer));
+    const hashedHex = hashedArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+    return hashedHex;
+  }
+</script>
+
+</html>

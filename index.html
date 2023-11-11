@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Check mart</title>
+
+  <script src="//unpkg.com/systemjs@0.19.47/dist/system.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="alternate" href="alert.css" type="application/atom+xml" title="Atom">
+</head>
+
+
+<body>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar_content">
+      <span class="close_icon" id="close_sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+          <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+        </svg></span>
+      <!-- Sidebar content goes here -->
+      <h3>Sidebar Menu</h3>
+      <ul>
+        <li><form id="sidebar_search"><input type="text" id="sidebar_input" placeholder="Search product"></form></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Account.html">My Account</a></li>
+        <li><a href="search with code.html">Search with code</a></li>
+        <li><a href="my bag.html">My Bag</a></li>
+        <li><a href="About Us.html">About Us</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Terms and Conditions.html">Terms and Conditions</a></li>
+        <li><a href="Privacy policy.html">Privacy Policy</a></li>
+        <li><a href="Copyright Policy.html">Copyright Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sidebar_background" id="sidebar_background">
+
+  </div>
+
+  <header>
+
+
+    <i class="fa-solid fa-bars" id="open_sidebar"></i>
+
+
+    <nav id="navbar">
+      <div id="spacer">
+
+      </div>
+      <a href="index.html"><img src="images/New Project 12 [DC45756].png" alt="CheckMart" class="logo"><img src="images/New Project 13 [A92F7B1].png" alt="" class="logo"></a>
+      <div class="form_container">
+        <div class="searchform">
+          <input type="text" class="srcinp" placeholder="SEARCH" onclick="searchactive()">
+          <button class="srcbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <ul class="results">
+
+        </ul>
+
+      </div>
+      <a href="login.html" id="login"><i class="fa-solid fa-user"></i>Login</a>
+
+      <a href="search with code.html" id="populat_now">
+        <p>Search with code</p>
+      </a>
+
+    </nav>
+
+
+  </header>
+
+  <section id="option_bar">
+    <span id="all"><i class="fa-solid fa-angle-down" style="color: #ffffff; margin-right: 4rem;"></i>
+      <p>All</p>
+    </span>
+
+    <div id="option-tray">
+      <a href="" class="option">Option 1</a>
+      <a href="" class="option">Option 2</a>
+      <a href="" class="option">Option 3</a>
+      <a href="" class="option">Option 4</a>
+      <a href="" class="option">Option 5</a>
+
+    </div>
+    <div id="option_panal" class="closed_option_panal">
+      <ul>
+        <li>Option 1</li>
+        <li>Option 2</li>
+        <li>Option 3</li>
+        <li>Option 4</li>
+        <li>Option 5</li>
+      </ul>
+    </div>
+
+
+
+    <div id="bag-container">
+      <a href="my bag.html" style="color:white;"><i class="fa-solid fa-basket-shopping"></i>
+        <p>My bag</p>
+      </a>
+    </div>
+
+  </section>
+
+  <section class="display-img">
+    <div id="buttonbox">
+
+      <button onclick="prevboard()" id="prevbutton"><i class="fa-solid fa-chevron-left"></i></button>
+      <button onclick="nextboard()" id="nextbutton"><i class="fa-solid fa-chevron-right"></i></button>
+
+    </div>
+
+    <div class="dis-left">
+
+      <div id="scroll_indicator">
+        <div class="scroll_dot activeScroll_dot"></div>
+        <div class="scroll_dot"></div>
+        <div class="scroll_dot"></div>
+        <div class="scroll_dot"></div>
+        <div class="scroll_dot"></div>
+        <div class="scroll_dot"></div>
+        <div class="scroll_dot"></div>
+      </div>
+      <a href="" id="dis_left_a"></a>
+
+    </div>
+    <div class="dis-right">
+      <div class="dis-right1">
+        <a href="" id="dis_left_up_a"></a>
+      </div>
+      <div class="float-down-container">
+
+      </div>
+    </div>
+  </section>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="alert.js"></script>
+  <script src="json.js"></script>
+  <script>
+    const openSidebarButton = document.getElementById('open_sidebar');
+    const sidebarBackground = document.getElementById('sidebar_background');
+    const closeSidebarButton = document.getElementById('close_sidebar');
+    const sidebar = document.getElementById('sidebar');
+    const open_option_palal = document.getElementById('all');
+    const option_palal = document.getElementById('option_panal');
+
+
+    //const content = document.querySelector('.content');
+
+    openSidebarButton.addEventListener('click', function(e) {
+      e.stopPropagation(); // Prevent the click event from reaching the document
+      sidebar.classList.add('show')
+      sidebarBackground.classList.add('opened_sidebar_background');
+
+
+
+    });
+
+    open_option_palal.addEventListener('click', function(e) {
+      e.stopPropagation(); // Prevent the click event from reaching the document
+      option_palal.classList.add('opened_option_panal')
+      sidebarBackground.classList.add('opened_sidebar_background');
+
+
+
+    });
+
+    closeSidebarButton.addEventListener('click', function() {
+      sidebar.classList.remove('show');
+      option_palal.classList.remove('opened_option_panal')
+      sidebarBackground.classList.remove('opened_sidebar_background');
+
+    });
+
+    // Add an event listener to the document to close the sidebar when clicking anywhere outside
+    document.addEventListener('click', function(e) {
+      if (!sidebar.contains(e.target)) {
+        sidebar.classList.remove('show');
+        option_palal.classList.remove('opened_option_panal')
+
+        sidebarBackground.classList.remove('opened_sidebar_background');
+
+      }
+    });
+  </script>
+  <script src="Agreement.js"></script>
+</body>
+
+</html>

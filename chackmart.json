@@ -1,0 +1,63 @@
+{
+  "option_bar": {
+    "Google": "https://www.google.com",
+    "facebook": "https://www.facebook.com",
+    "amazon": "https://www.amazon.com",
+    "Flipkart": "https://www.flipkart.com",
+    "Github": "https://www.github.com",
+    "p Acer":"auto search.html?value=fashion",
+    "Chat Gpt2":"https://chat.openai.com/?model=text-davinci-002-render-sha",
+    "Chat Gpt3":"https://chat.openai.com/?model=text-davinci-002-render-sha",
+    "Chat Gpt4":"https://chat.openai.com/?model=text-davinci-002-render-sha",
+    "Ankit":"auto search.html?value=ankit"
+  },
+  "board": {
+    "right": {
+      "images/board images/right_board/IMG_20221119_212310.jpg": "images/board images/right_board/IMG_20221119_212310.jpg",
+      "images/board images/right_board/IMG_20221120_215123.jpg": "images/board images/right_board/IMG_20221120_215123.jpg",
+      "images/board images/right_board/IMG_20221120_215244.jpg": "images/board images/right_board/IMG_20221120_215244.jpg",
+      "images/board images/right_board/IMG_20221120_215932.jpg": "images/board images/right_board/IMG_20221120_215932.jpg",
+      "images/board images/right_board/IMG_20221121_115111.jpg": "images/board images/right_board/IMG_20221121_115111.jpg"
+
+    },
+    "left_up": {
+      "images/board images/leftUp/New Project 5 [295ECFC].png": "images/board images/leftUp/New Project 5 [295ECFC].png"
+    },
+    "left_down": {
+      "images/board images/leftDown/IMG_20221122_215737.jpg": "images/board images/leftDown/IMG_20221122_215737.jpg",
+      "images/board images/leftDown/IMG_20221122_215817.jpg": "images/board images/leftDown/IMG_20221122_215817.jpg"
+    }
+  },
+  "products":[
+  {
+      "A": ["0001", "0002", "0002", "0001", "0003", "0001", "0003", "0002", "0002", "0003", "0001", "0003", "0001", "0002"],
+      "name": "Topals",
+      "url": "https://gbapkpro.com/"
+    },  {
+        "A": ["0001", "0002", "0002", "0001", "0003", "0001", "0003", "0002", "0002", "0003", "0001", "0003", "0001", "0002"],
+        "name": "Top deals",
+        "url": "https://gbapkpro.com/"
+      },
+  {
+    "C": ["0001", "0002", "0003", "0001", "0002", "0003", "0001", "0002", "0002", "0003" ],
+    "name": "Electronics",
+    "url": "https://www.google.com/"
+  },
+  {
+    "B": ["0003", "0001", "0003", "0001", "0001", "0002", "0003", "0001", "0002", "0002", "0001", "0002", "0001", "0002", "0003", "0003" ],
+    "name": "Foodies",
+    "url": "https://www.google.com/"
+  }, {
+    "A": ["0001", "0002", "0002", "0001", "0003", "0001", "0003", "0002", "0002", "0003", "0001", "0003", "0001", "0002"],
+    "name": "Tops",
+    "url": "https://gbapkpro.com/"
+  }
+]
+
+
+
+
+
+
+
+}

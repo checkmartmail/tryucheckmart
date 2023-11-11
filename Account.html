@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Onest&family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="alert.css">
+  <title>My Account</title>
+</head>
+
+<style>
+  html {
+    font-size: 0.08vw;
+  }
+
+
+
+
+
+
+  * {
+    margin: 0;
+    padding: 0;
+    font-size: 16rem;
+  }
+
+
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+
+  #history,
+  #account {
+    background-color: #fff;
+    border-radius: 10rem;
+    padding: 20rem;
+    margin: 20rem 10rem;
+    box-sizing: border-box;
+  }
+
+  .history_more_icon {
+    margin-right: 0;
+    width: 0;
+  }
+
+  .history_more_icon svg {
+    transform: rotate(0deg);
+    font-size: 20rem;
+    position: relative;
+    top: -5rem;
+    left: -5rem;
+    display: block;
+    padding: 5rem;
+    background-color: white;
+    border-radius: 50%;
+  }
+
+  .history_product_image_container {
+    display: flex;
+    width: 180rem;
+    height: 180rem;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12rem;
+  }
+
+  .history_product_image_container img {
+    width: 100%;
+    max-height: 100%;
+  }
+
+  .history_product {
+    background-color: #eee;
+    padding: 12rem;
+    display: inline-flex;
+    flex-direction: column;
+    margin: 8rem;
+    border-radius: 10rem;
+  }
+
+  .history_product_name_container {
+    width: 180rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    display: flex;
+    margin: 10rem 0;
+  }
+
+  .history_product_name_container h1 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    max-width: 90%;
+  }
+
+  .history_heading,
+  .account_heading {
+    font-size: 30rem;
+    margin-left: 20rem;
+    margin-bottom: 10rem;
+  }
+
+  .history_heading svg,
+  .account_heading svg {
+    font-size: 25rem;
+    margin-right: 4rem;
+    background-color: #f5f5f5;
+  }
+
+  .history_slider {
+    overflow-x: scroll;
+    display: flex;
+    overflow-x: scroll;
+  }
+
+  .history_slider::-webkit-scrollbar {
+    height: 0rem;
+  }
+
+  /* Shopping Bag Section Styles */
+
+  .bag_product {
+    background-color: #eee;
+    display: flex;
+    margin: 15rem;
+    padding: 10rem;
+    border-radius: 10rem;
+  }
+
+  #my_bag {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .bag_image_container {
+    min-width: 200rem;
+    width: 200rem;
+    min-height: 200rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 10rem;
+    overflow: hidden;
+    margin: 10rem;
+  }
+
+  .bag_image_container img {
+    display: block;
+    width: 100%;
+    max-height: 100%;
+  }
+
+  .bag_details {
+    margin: 10rem;
+    padding: 0 10rem;
+  }
+
+  .price_and_remove_container {
+    display: flex;
+    margin-top: 10rem;
+  }
+
+  .price_and_remove_container .price {
+    color: green;
+    font-size: 19rem;
+    font-weight: 400;
+  }
+
+  .bag_product_name {
+    font-size: 25rem;
+  }
+
+  /* Button Styles */
+
+  .remove_button {
+    display: inline-block;
+    padding: 10rem 20rem;
+    background-color: #3498db;
+    color: #fff;
+    border: 4rem solid #108bc4;
+    border-radius: 5rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    position: absolute;
+    right: 70rem;
+  }
+
+  .remove_button:hover {
+    background-color: #2980b9;
+    border-color: #68c0fc;
+    border-radius: 8rem;
+  }
+
+  .remove_button:active {
+    background-color: #2073a4;
+    border-color: #2073a4;
+  }
+
+  /* Text Rating Styles */
+
+  .text_rating {
+    display: inline-flex;
+    font-size: 27rem;
+    position: relative;
+    top: 2rem;
+    background-color: green;
+    padding: 0 8rem;
+    color: white;
+    border-radius: 5rem;
+  }
+
+  .rating {
+    font-size: 15rem;
+    background: linear-gradient(to right, gold 10%, grey 10%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .rating i {
+    font-size: 18rem;
+  }
+
+  .price_box h1 {
+    font-size: 40rem;
+    display: inline;
+    color: black;
+  }
+
+  .price_box h2 {
+    font-size: 20rem;
+    display: inline;
+    color: grey;
+    margin-left: 10rem;
+  }
+
+  .price_box h3 {
+    color: red;
+    display: inline;
+    font-size: 30rem;
+    font-weight: 300;
+  }
+
+  .price_box p {
+    font-size: 20rem;
+    color: grey;
+    margin-top: 5rem;
+  }
+
+  .price_box hr {
+    margin: 20rem 0;
+    border-color: #ddd;
+  }
+
+  /* Footer Styles */
+
+  /* Add your styles for the footer here */
+
+  /* General Button Styles */
+
+  .button {
+    display: inline-block;
+    padding: 10rem 20rem;
+    background-color: #3498db;
+    color: #fff;
+    border: 4rem solid #108bc4;
+    border-radius: 5rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  .button:hover {
+    background-color: #2980b9;
+    border-color: #68c0fc;
+    border-radius: 8rem;
+  }
+
+  .button:active {
+    background-color: #2073a4;
+    border-color: #2073a4;
+  }
+
+
+
+
+
+
+
+
+
+  #user_Info {
+    background-color: #f4f4f4;
+    padding: 20rem;
+    border-radius: 10rem;
+    margin: 20rem;
+    display: flex;
+  }
+
+
+  #user_Info img {
+    display: inline;
+    width: 150rem;
+    height: 150rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10rem;
+    box-shadow: 0 0 10rem rgba(0, 0, 0, 0.2);
+  }
+
+  #img_div {
+    display: inline-block;
+    margin: 20rem;
+  }
+
+  #auto_name {
+    font-size: 20rem;
+    color: #333;
+    margin: 10rem 0;
+  }
+
+  #auto_gender,
+  #auto_phone_number {
+    font-size: 16rem;
+    color: #666;
+    margin: 5rem 0;
+  }
+
+  .more_in_account {
+    cursor: pointer;
+    font-size: 24erm;
+    color: #333;
+    background-color: #fff;
+    padding: 7rem 10rem;
+    border-radius: 50%;
+    box-shadow: 0 0 10rem rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+    position: absolute;
+    right: 100rem;
+    top: 200rem;
+  }
+
+
+  .more_in_account:hover {
+    background-color: #ccc;
+    color: #fff;
+    transform: rotate(90deg);
+  }
+
+
+
+
+
+
+
+
+
+  #account_more_panel {
+    position: absolute;
+    right: 100rem;
+    top: 200rem;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 170px;
+    padding: 10px;
+    border-radius: 15px;
+    z-index: 7;
+    display: none;
+  }
+
+  #account_more_panel button {
+    display: block;
+    width: 90%;
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 8px;
+    color: white;
+  }
+
+  #logout {
+    background-color: #ff7f00;
+    /* Orange background color */
+    border: 3px solid #e07000;
+    /* Orange border color */
+  }
+
+  #change_passward {
+    background-color: #00a7e1;
+    /* Blue background color */
+    border: 3px solid #4ed3ff;
+    /* Blue border color */
+  }
+
+  #delete_account {
+    background-color: rgb(255, 93, 24);
+    /* Red background color */
+    border: 3px solid #ff6c6c;
+    /* Red border color */
+  }
+
+
+  @media (max-width:700px) {
+    .more_in_account {
+      top: 270rem;
+      transform: scale(1.1);
+    }
+
+    #account_more_panel {
+      position: absolute;
+      right: 100rem;
+      top: 270rem;
+      width: 110px;
+      padding: 5px;
+      border-radius: 8px;
+    }
+
+    #account_more_panel button {
+      margin: 7px;
+      padding: 5px;
+      font-size: 10px;
+      border-radius: 6px;
+    }
+
+
+  }
+</style>
+<link rel="stylesheet" href="header.css">
+
+
+<body>
+
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar_content">
+      <span class="close_icon" id="close_sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+          <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+        </svg></span>
+      <!-- Sidebar content goes here -->
+      <h3>Sidebar Menu</h3>
+      <ul>
+        <li><a href="search with code.html">Search with code</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sidebar_background" id="sidebar_background">
+
+  </div>
+
+  <header>
+
+
+    <i class="fa-solid fa-bars" id="open_sidebar"></i>
+
+
+    <nav id="navbar">
+      <div id="spacer">
+
+      </div>
+      <a href="index.html"><img src="images/New Project 12 [DC45756].png" alt="CheckMart" class="logo"><img src="images/New Project 13 [A92F7B1].png" alt="" class="logo"></a>
+      <div class="form_container">
+        <div class="searchform">
+          <input type="text" class="srcinp" placeholder="SEARCH" onclick="searchactive()">
+          <button class="srcbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <ul class="results">
+
+        </ul>
+
+      </div>
+      <a href="login.html" id="login"><i class="fa-solid fa-user"></i>Login</a>
+
+      <a href="search with code.html" id="populat_now">
+        <p>Search with code</p>
+      </a>
+
+    </nav>
+
+
+  </header>
+  <!-- <section id="option_bar">
+    <span id="all"><i class="fa-solid fa-angle-down" style="color: #ffffff; margin-right: 4rem;"></i>
+      <p>All</p>
+    </span>
+
+    <div id="option-tray">
+      <a href="" class="option">Option 1</a>
+      <a href="" class="option">Option 2</a>
+      <a href="" class="option">Option 3</a>
+      <a href="" class="option">Option 4</a>
+      <a href="" class="option">Option 5</a>
+
+    </div>
+
+
+    <div id="bag-container">
+      <a href="#" style="color:white;"><i class="fa-solid fa-basket-shopping"></i>
+        <p>My bag</p>
+      </a>
+    </div>
+
+  </section>-->
+
+
+  <div id="account_more_panel">
+    <button id="logout" onclick="log_out()">log Out</button>
+    <button id="change_passward" onclick="change_passward()">Change Passward</button>
+    <button id="delete_account" onclick="delete_account()">Delete Accounty</button>
+  </div>
+
+
+  <section id="account">
+    <i class="more_in_account"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+        <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z" />
+      </svg></i>
+    <h1 class="account_heading"><i><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+          <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+        </svg></i>Account</h1>
+    <div id="user_Info">
+
+      <img src="frame_00001.jpg" alt="frame_00001.jpg">
+      <div id="img_div">
+        <h2 id="auto_name">Name</h2>
+        <p id="auto_gender">Male</p>
+        <p id="auto_phone_number">70275-2XXXX</p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="history">
+    <h1 class="history_heading"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+        <path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z" />
+      </svg>History</h1>
+    <div class="history_slider">
+    </div>
+  </section>
+
+
+
+  <section id="my_bag">
+  </section>
+
+
+
+
+
+  <script src="alert.js"></script>
+  <script src="header.js"></script>
+  <script>
+    const slider = document.querySelector('.history_slider');
+
+
+    var scrollDiv = document.querySelector('.history_slider');;
+
+    scrollDiv.addEventListener('wheel', function(e) {
+      e.preventDefault(); // Prevent default scrolling behavior
+
+      // Adjust the horizontal scroll position based on the scroll wheel delta
+      scrollDiv.scrollLeft += e.deltaY;
+    });
+
+
+
+    let user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      document.getElementById("auto_name").innerText = user["name"]
+      document.getElementById("auto_gender").innerText = user["gender"]
+      let phone_number_on_board = user["phone_number"].slice(0, 5) + "-" + user["phone_number"][5] + "XXXX";
+      document.getElementById("auto_phone_number").innerText = phone_number_on_board;
+    } else {
+      customalert("warning", "You are not logged in", "")
+    }
+
+
+
+
+    // const openSidebarButton = document.getElementById('open_sidebar');
+    // const sidebarBackground = document.getElementById('sidebar_background');
+    // const closeSidebarButton = document.getElementById('close_sidebar');
+    // const sidebar = document.getElementById('sidebar');
+    // const open_option_palal = document.getElementById('all');
+    // const option_palal = document.getElementById('option_panal');
+
+
+
+    let moreicon = document.querySelector(".more_in_account");
+    let account_more_panel = document.getElementById("account_more_panel")
+
+
+
+    moreicon.addEventListener('click', function(e) {
+      e.stopPropagation(); // Prevent the click event from reaching the document
+      sidebarBackground.classList.add('opened_sidebar_background');
+
+
+
+      if (account_more_panel.style.display == "block") {
+        account_more_panel.style.display = "none";
+        sidebarBackground.classList.add('opened_sidebar_background');
+
+      } else {
+        account_more_panel.style.display = "block";
+        sidebarBackground.classList.add('opened_sidebar_background');
+      }
+
+
+    });
+
+
+
+    document.addEventListener('click', function(e) {
+      if (!account_more_panel.contains(e.target)) {
+        account_more_panel.style.display = "none"
+      } else {
+        sidebarBackground.classList.add('opened_sidebar_background');
+      }
+    });
+
+
+
+
+
+
+    function log_out() {
+
+
+      var userData2 = JSON.parse(localStorage.getItem("user"));
+      if (!userData) {
+        customalert("warning", "You are not logged in", "")
+      } else {
+
+
+        let confirmation = confirm("Are you sure you want to Log out?");
+        if (confirmation) {
+          localStorage.removeItem("user");
+          window.location.reload();
+        }
+      }
+    }
+
+
+
+    function change_passward() {
+      var userData2 = JSON.parse(localStorage.getItem("user"));
+      if (!userData) {
+        customalert("warning", "You are not logged in", "")
+      } else {
+        window.location.href
+      }
+
+    }
+
+
+
+    function delete_account() {
+      var userData2 = JSON.parse(localStorage.getItem("user"));
+      if (!userData) {
+        customalert("warning", "You are not logged in", "")
+      } else {
+
+        window.location.href = "Delete_Account.html"
+      }
+    }
+
+
+
+
+
+
+
+
+
+    // Inline JavaScript function to add a blue dot with bubble animation
+    document.querySelectorAll(".add-dot-button").forEach(button => {
+      button.addEventListener("click", (e) => {
+        const dot = document.createElement("div");
+        dot.classList.add("blue-dot");
+        dot.style.left = (e.clientX - button.getBoundingClientRect().left - 5) + "px"; // Adjust for dot size
+        dot.style.top = (e.clientY - button.getBoundingClientRect().top - 5) + "px"; // Adjust for dot size
+        button.appendChild(dot);
+
+        // Remove the dot after the animation completes
+        dot.addEventListener("animationend", () => {
+          button.removeChild(dot);
+        });
+      });
+    });
+
+
+
+
+
+    var products_json;
+    fetch("products.json").then(response => {
+      return response.json();
+    }).then(data => {
+      products_json = data;
+
+
+      controllpage(data);
+      //refreshbag(data);
+      //refreshhistory(data);
+
+    });
+
+
+    var userData = JSON.parse(localStorage.getItem("user"));
+    var userBag;
+    var total_products_in_bag;
+
+    function controllpage(data) {
+      if (userData) {
+        userBag = userData.bag;
+        total_products_in_bag = userBag.length;
+        refreshbag(data);
+
+      }
+      var history = JSON.parse(localStorage.getItem("history"));
+      if (history) {
+        refreshhistory(data);
+      }
+    }
+
+
+
+
+
+
+    function refreshbag(product_json) {
+
+      userData = JSON.parse(localStorage.getItem("user"));
+      userBag = userData.bag;
+      total_products_in_bag = userBag.length;
+
+      const bagSection = document.getElementById("my_bag")
+
+      if (total_products_in_bag > 0) {
+        bagSection.innerHTML = "";
+
+
+
+        var bag_products_string = "";
+        //total_products_in_bag
+        for (let i = 0; i < total_products_in_bag; i++) {
+
+
+          var present_product_code = userBag[i];
+          var present_product_name = product_json[present_product_code]["name"];
+          var present_product_rating = product_json[present_product_code]["raating"];
+          var present_product_thumbnail = product_json[present_product_code]["thumbnail"];
+          var rating_percentage = (present_product_rating / 5) * 100;
+
+
+
+
+
+          var present_product = `<div class="bag_product"><a href="checkmart%20products.html?value=` + present_product_code + `">
+      <div class="bag_image_container">
+        <img src="` + present_product_thumbnail + `" alt="">
+      </div>
+      <div class="bag_details">
+        <h1 class="bag_product_name">` + present_product_name + `</h1>
+        <h3 class="text_rating">0.0</h3>
+        <div class="rating" style="display: inline-flex;
+  font-size: 10rem;background: linear-gradient(to right, gold ` + rating_percentage + `%, grey ` + rating_percentage + `%);background-clip: text;
+  -webkit-background-clip: text;color: transparent;
+  margin-bottom: 10rem;">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="price_and_remove_container">
+          <div class="price_box" id="price_box` + i + `">
+            <h3>-90%</h3>
+            <h1><sup>₹</sup>5000</h1>
+            <h2><strike>₹5000</strike></h2>
+            <p><i class="fa-solid fa-money-check-dollar fa-shake"></i>You save ₹5000</p>
+          </div></a>
+          <button class="remove_button" onclick=removeitemfrombag("` + present_product_code + `")>Remove from Bag</button>
+        </div>
+      </div></a>
+    </div>`
+
+          //console.log(i)
+          bagSection.innerHTML += present_product;
+          update_rating(present_product_rating, i);
+          update_pricebox(product_json[present_product_code], i)
+
+
+        }
+      } else {
+        bagSection.innerHTML = `<h1 style="font-size:40rem; text-align:center; color:#1F1F1F; padding:50rem; border:1rem solid #1F1F1F; margin:20rem;border-radius:20rem;">BAG IS EMPTY   :(</h1>`;
+        console.log("bag is empty");
+      }
+
+      // console.log(present_product);
+      //update_rating(product_json)
+
+    }
+
+
+
+
+    function update_rating(ratingvalue, bag_product_index) {
+
+      let rating_text = ratingvalue;
+      //console.log(bag_product_index);
+
+      document.getElementsByClassName("text_rating")[bag_product_index].innerText = ratingvalue;
+
+    }
+
+
+
+
+    function update_pricebox(present_product_json, bag_product_index) {
+      let off_Percent = document.querySelector("#price_box" + bag_product_index + " h3");
+      let dealprice = document.querySelector("#price_box" + bag_product_index + " h1");
+      //console.log(dealprice)
+      let mrp = document.querySelector("#price_box" + bag_product_index + " h2");
+      let save_money = document.querySelector("#price_box" + bag_product_index + " p");
+
+
+      let c = present_product_json["dealprice"];
+      let a = parseFloat(present_product_json["dealprice"].replace(/,/g, ''));
+      let d = present_product_json["mrp"];
+      let b = parseFloat(present_product_json["mrp"].replace(/,/g, ''));
+
+
+      dealprice.innerHTML = "<sup>₹</sup>" + c;
+      mrp.innerHTML = "<strike>₹" + d + "</strike>";
+
+
+
+      save_money_Innertext = (b - a);
+      save_money_Innertext_with_comma = addCommasIndianStyle(save_money_Innertext)
+
+
+      save_money.innerHTML = `<i class="fa-solid fa-money-check-dollar fa-shake"></i>You save ₹` + save_money_Innertext_with_comma;
+
+      var percentage = (save_money_Innertext / b) * 100;
+
+      const roundedPercentage = Math.round(percentage);
+
+      off_Percent.innerText = "-" + roundedPercentage + "%";
+
+
+    }
+
+
+
+    function addCommasIndianStyle(number) {
+      if (isNaN(number)) {
+        return "Not a valid number";
+      }
+
+      // Convert the number to a string
+      let numberString = number.toString();
+
+      // Split the number into integer and decimal parts (if any)
+      const parts = numberString.split('.');
+
+      // Add commas to the integer part with the correct Indian numbering system format
+      parts[0] = parts[0].replace(/(\d)(?=(\d\d)+\d$)/g, "$1,");
+
+      // Join the integer and decimal parts (if any)
+      return parts.join('.');
+    }
+    //console.log(indianFormattedNumber); // Outputs "12,34,56,7890"
+
+
+
+
+
+
+
+
+
+    function refreshhistory(present_product_json) {
+      //console.log(present_product_json);
+
+      var history_slider = document.querySelector(".history_slider");
+      history_slider.innerHTML = "";
+      //var history
+      var history = JSON.parse(localStorage.getItem("history"));
+      var total_elements_in_history = history.length;
+      var present_history_indexx = (total_elements_in_history - 1);
+
+      for (let i = 0; i < total_elements_in_history; i++) {
+        var present_history = history[present_history_indexx];
+        //console.log('index :' + present_history_indexx);
+        present_history_indexx--;
+        var present_history_thumbnail = present_product_json[present_history]["thumbnail"];
+        var present_history_name = present_product_json[present_history]["name"];
+        //console.log(present_history)
+
+
+        var history_product_innerhtml = `      <div class="history_product">
+      <a href="checkmart products.html?value=` + present_history + `">
+              <div class="history_product_image_container">
+                <img src="` + present_history_thumbnail + `" alt="">
+              </div></a>
+              <div class="history_product_name_container">
+                <h1 class="history_product_name">` + present_history_name + `</h1>
+                <i class="history_more_icon" onclick='historyclicked("` + present_history + `")'><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/></svg></i>
+              </div>
+            </div>`
+
+        history_slider.innerHTML += history_product_innerhtml;
+
+      }
+
+
+
+
+    }
+
+
+
+    function historyclicked(a) {
+
+      var history_data = localStorage.getItem("history");
+
+      //console.log(a);
+
+      var parder_history = JSON.parse(history_data);
+
+      if (parder_history.length > 0) {
+        // Pop (remove and return) the last value from the array
+        var index = parder_history.indexOf(a);
+
+        // Pop (remove and return) "0004" from the array
+        const poppedValue = parder_history.splice(index, 1)[0];
+
+        //parder_history.push(a);
+
+        localStorage.setItem("history", JSON.stringify(parder_history));
+        // Return the popped value ("0004")
+        //console.log("popped");
+        customalert("info", "Removed from history", "this item is removed from history")
+        refreshhistory(products_json);
+
+      }
+    }
+
+
+
+
+
+
+    const githubToken = "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";
+    const githubUsername = 'ankit81413';
+    const githubRepo = 'Logintest';
+    const githubFilePath = 'Login.json';
+
+    function removeProductFromBag(product_to_be_removed, hashedphone, hashedpassword) {
+      // Fetch the JSON data from GitHub
+      fetch(`https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${githubFilePath}`, {
+          method: 'GET',
+          headers: {
+            Authorization: `token ${githubToken}`,
+          },
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Decode the content of the JSON file
+          const content = atob(data.content);
+          const jsonData = JSON.parse(content);
+
+          // Find the user with matching hashedphone and hashedpassword
+          const matchingUser = jsonData.users.find(user => user.phone_number === hashedphone && user.password === hashedpassword);
+
+          if (matchingUser) {
+            // Check if the product_to_be_removed is in the user's bag
+            const indexOfProduct = matchingUser.bag.indexOf(product_to_be_removed);
+            if (indexOfProduct !== -1) {
+              // Remove the product from the user's bag array
+              matchingUser.bag.splice(indexOfProduct, 1);
+
+              // Encode the updated JSON data
+              const updatedContent = btoa(JSON.stringify(jsonData, null, 2));
+
+              // Update the JSON data on GitHub
+              fetch(`https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${githubFilePath}`, {
+                  method: 'PUT',
+                  headers: {
+                    Authorization: `token ${githubToken}`,
+                  },
+                  body: JSON.stringify({
+                    message: 'Update user bag (remove product)',
+                    content: updatedContent,
+                    sha: data.sha,
+                  }),
+                })
+                .then(response => response.json())
+                .then(updatedData => {
+                  customalert("success", "Removed from history", "this item is removed from history")
+                  // console.log('Product removed from user bag on GitHub:', updatedData);
+
+                })
+                .catch(error => {
+                  // console.error('Error updating user bag on GitHub:', error);
+                });
+            } else {
+              // console.log('Product is not in the user\'s bag.');
+            }
+          } else {
+            // console.log('No matching user found.');
+          }
+        })
+        .catch(error => {
+          // console.error('Error fetching GitHub JSON:', error);
+        });
+    }
+
+    //Example usage:
+
+
+    //removeProductFromBag(product_to_be_removed, hashedphone, hashedpassword);
+
+
+
+
+
+
+
+    // Function to remove a value from the "bag" array in the JSON object stored in localStorage
+    function remove_from_local_bag(valueToRemove) {
+      // Retrieve the JSON data from localStorage
+      const userData = localStorage.getItem("user");
+
+      // Check if data exists for the provided key
+      if (userData) {
+        // Parse the JSON string into a JavaScript object
+        const userObject = JSON.parse(userData);
+
+        // Check if the "bag" property is an array in the object
+        if (Array.isArray(userObject.bag)) {
+          // Find the index of the value to remove in the "bag" array
+          const index = userObject.bag.indexOf(valueToRemove);
+
+          // If the value exists in the "bag" array, remove it
+          if (index !== -1) {
+            userObject.bag.splice(index, 1);
+
+            // Stringify the modified object back into a JSON string
+            const updatedUserData = JSON.stringify(userObject);
+
+            // Update the "user" key in localStorage with the modified JSON string
+            localStorage.setItem("user", updatedUserData);
+
+            // Return the modified user object
+
+            return userObject;
+
+
+          }
+        }
+      }
+
+
+
+    }
+
+
+
+
+
+    async function removeitemfrombag(number) {
+
+      var userdata2 = JSON.parse(localStorage.getItem("user"));
+      var phone_number = userdata2["phone_number"];
+      var password = userdata2["password"];
+
+
+      const product_to_be_removed = number;
+      const hashedphone = await sha256(phone_number);
+      const hashedpassword = await sha256(password);
+
+      removeProductFromBag(product_to_be_removed, hashedphone, hashedpassword);
+      remove_from_local_bag(product_to_be_removed);
+      refreshbag(products_json);
+
+
+
+
+      //console.log(hashedphone)
+      //console.log(hashedpassword)
+
+
+    }
+
+
+
+
+
+    async function sha256(input) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(input);
+      const buffer = await crypto.subtle.digest('SHA-256', data);
+
+      // Convert the buffer to a hexadecimal string
+      const hashedArray = Array.from(new Uint8Array(buffer));
+      const hashedHex = hashedArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+      return hashedHex;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product</title>
+  <link rel="stylesheet" href="products.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Onest&family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="alert.css">
+</head>
+
+<body>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar_content">
+      <span class="close_icon" id="close_sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+          <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+        </svg></span>
+      <!-- Sidebar content goes here -->
+      <h3>Sidebar Menu</h3>
+      <ul>
+        <li><a href="search with code.html">Search with code</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sidebar_background" id="sidebar_background">
+
+  </div>
+
+  <header>
+
+
+    <i class="fa-solid fa-bars" id="open_sidebar"></i>
+
+
+    <nav id="navbar">
+      <div id="spacer">
+
+      </div>
+      <a href="index.html"><img src="images/New Project 12 [DC45756].png" alt="CheckMart" class="logo"><img src="images/New Project 13 [A92F7B1].png" alt="" class="logo"></a>
+      <div class="form_container">
+        <div class="searchform">
+          <input type="text" class="srcinp" placeholder="SEARCH" onclick="searchactive()">
+          <button class="srcbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <ul class="results">
+
+        </ul>
+
+      </div>
+      <a href="login.html" id="login"><i class="fa-solid fa-user"></i>Login</a>
+
+      <a href="search with code.html" id="populat_now">
+        <p>Search with code</p>
+      </a>
+
+    </nav>
+
+
+  </header>
+
+  <!--  <section id="option_bar">
+    <span id="all"><i class="fa-solid fa-angle-down" style="color: #ffffff; margin-right: 4rem;"></i>
+      <p>All</p>
+    </span>
+
+    <div id="option-tray">
+      <a href="" class="option">Option 1</a>
+      <a href="" class="option">Option 2</a>
+      <a href="" class="option">Option 3</a>
+      <a href="" class="option">Option 4</a>
+      <a href="" class="option">Option 5</a>
+
+    </div>
+    <div id="option_panal" class="closed_option_panal">
+      <ul>
+        <li><a href="hi">hi</a></li>
+        <li>Option 2</li>
+        <li>Option 3</li>
+        <li>Option 4</li>
+        <li>Option 5</li>
+      </ul>
+    </div>
+
+
+
+    <div id="bag-container">
+      <a href="my bag.html" style="color:white;"><i class="fa-solid fa-basket-shopping"></i>
+        <p>My bag</p>
+      </a>
+    </div>
+
+  </section>-->
+
+
+
+
+
+
+
+
+
+
+  <div id="main">
+    <div class="left_container">
+      <div class="product_visuals">
+        <div id="product_visuals_sticky_div">
+          <div id="main_image_container">
+            <img id="product_image" src="products inages/811aBK9bUFL._SL1500_ (1).jpg" alt="Image loiading failed">
+          </div>
+          <div class="image_gallery">
+            <img src="products inages/811aBK9bUFL._SL1500_ (1).jpg" alt="" onclick="change_priduct_image(0)">
+          </div>
+          <div class="buttons">
+            <button id="add_to_bag_button" class="add-dot-button" onclick="AddToBag()">Add to my Bag</button>
+            <button class="add-dot-button" onclick="viewProduct()">View Product</button>
+          </div>
+        </div>
+      </div>
+      <div class="product_details">
+        <div id="name_heading">
+          <p>HP Laptop 15s, Intel Celeron N4500</p>
+        </div>
+        <h3 id="text_rating">0.5</h3>
+        <div class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p class="smallnote">
+          <i class="fa-solid fa-face-smile" style="color: #2691D9;"></i>
+          The reference for this rating is taken from amazon.com
+        </p>
+        <div id="price_box">
+          <h3>-90%</h3>
+          <h1><sup>₹</sup>5000</h1>
+          <h2><strike>₹5000</strike></h2>
+          <p><i class="fa-solid fa-money-check-dollar fa-shake"></i>You save ₹5000</p>
+        </div>
+        <a href="" id="amazon_redirecy_href">
+          <div id="amazon_redirecy" class="add-dot-button">
+            <h1>View more payment details on Amazon.com</h1><i class="fa-solid fa-arrow-up-right-from-square fa-bounce"></i>
+          </div>
+        </a>
+
+        <div id="colour_options">
+          <div id="color_heading">
+            <h3>Colour:</h3>
+            <h4>Red</h4>
+          </div>
+          <div id="colours">
+            <div class="colour" onclick="func(1)">
+              <img src="products inages/811aBK9bUFL._SL1500_ (1).jpg" alt="yellow">
+            </div>
+            <div class="colour" onclick="func(2)">
+              <img src="products inages/811aBK9bUFL._SL1500_ (1).jpg" alt="yellow">
+            </div>
+
+          </div>
+        </div>
+
+        <div id="keys_values">
+          <table>
+            <tr>
+              <td>Processor</td>
+              <td>Honor</td>
+            </tr>
+            <tr>
+              <td>Brand</td>
+              <td>Honor</td>
+            </tr>
+          </table>
+        </div>
+
+
+        <div id="about_this_product">
+          <h1>About this item</h1>
+
+          <ul>
+            <li>like</li>
+            <li>Processor : AMD Ryzen 5 5500U Hexa-Core Mobile Processor with AMD Radeon Graphics.Maximum Power Supply Wattage 45 W
+            <li>Processor : AMD Ryzen 5 5500U Hexa-Core Mobile Processor with AMD Radeon Graphics.Maximum Power Supply Wattage 45 W
+            <li>Processor : AMD Ryzen 5 5500U Hexa-Core Mobile Processor with AMD Radeon Graphics.Maximum Power Supply Wattage 45 W
+            <li>Processor : AMD Ryzen 5 5500U Hexa-Core Mobile Processor with AMD Radeon Graphics.Maximum Power Supply Wattage 45 W
+            </li>
+          </ul>
+
+        </div>
+
+
+      </div>
+    </div>
+
+
+    <div class="right_container">
+      <h1 id="similar_heading">Similar Products</h1>
+      
+      
+      <div id="all_similar_products">
+      <!--
+        <a href="checkmart products.html?value=0001" class="similar_product">
+          <div class="similar_image_container">
+            <img src="acer/blue/1.jpg" alt="silimar product" />
+          </div>
+          <div class="similar_name">
+            <h3>HP Laptop 15s, Intel Celeron N4500, 15.6 inch(39.6cm) HD Laptop (8GB RAM,512GB SSD,Intel UHD Graphics,Dual Speakers,Numeric Keypad,Alexa,Win 11,MSO 21,Natural Silver,1.69 Kgs) Fashion 15s-fq3071TU</h3>
+          </div>
+        </a>
+        <a href="checkmart products.html?value=0001" class="similar_product">
+          <div class="similar_image_container">
+            <img src="acer/blue/1.jpg" alt="silimar product" />
+          </div>
+          <div class="similar_name">
+            <h3>HP Laptop 15s, Intel Celeron N4500, 15.6 inch(39.6cm) HD Laptop (8GB RAM,512GB SSD,Intel UHD Graphics,Dual Speakers,Numeric Keypad,Alexa,Win 11,MSO 21,Natural Silver,1.69 Kgs) Fashion 15s-fq3071TU</h3>
+          </div>
+        </a>
+
+        <a href="checkmart products.html?value=0001" class="similar_product">
+          <div class="similar_image_container">
+            <img src="acer/blue/1.jpg" alt="silimar product" />
+          </div>
+          <div class="similar_name">
+            <h3>HP Laptop 15s, Intel Celeron N4500, 15.6 inch(39.6cm) HD Laptop (8GB RAM,512GB SSD,Intel UHD Graphics,Dual Speakers,Numeric Keypad,Alexa,Win 11,MSO 21,Natural Silver,1.69 Kgs) Fashion 15s-fq3071TU</h3>
+          </div>
+        </a>
+        -->
+
+
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+  <footer class="e-commerce-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email-1: checkmart.mail@gmail.com</p>
+            <p>Email-2: checkmart.charlies@gmail.com</p>
+            <p>Phone: +91 70275-22310</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="search with code.html">search through code</a></li>
+                <li><a href="Terms and Conditions.html">Terms and Conditions</a></li>
+                <li><a href="Privacy policy.html">Privacy policy</a></li>
+                <li><a href="About Us.html">About Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Stay Connected</h3>
+            <p>Follow us on social media:</p>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/checkmart.in/" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+              <a href="https://www.youtube.com/@CheckMart-vt7gv" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+              <a href="https://t.me/CheckMartindia" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2023 YourStore. All rights reserved.
+    </div>
+</footer>
+
+
+  <script src="alert.js"></script>
+  <script src="product.js"></script>
+   <script src="header.js"></script>
+
+
+</body>
+
+</html>
